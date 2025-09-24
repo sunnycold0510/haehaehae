@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="counter-output">counter : 0</h1>
+    <button id="btn-inc">Inc</button>
+    <button id="btn-dec">Dec</button>
+
+    <script>
+        // 요소 가져오기
+        var counterOutput = document.getElementById("counter-output");
+        var btnInc = document.getElementById("btn-inc");
+        var btnDec = document.getElementById("btn-dec");
+
+        // 카운터 초기값
+        var counter = 0;
+
+        // 증가 버튼 클릭 시
+        btnInc.addEventListener('click', () => {
+            counter = counter + 1;
+            counterOutput.innerText = "counter : " + counter;
+        });
+
+        // 감소 버튼 클릭 시
+        btnDec.addEventListener('click', () => {
+            counter = counter - 1;
+            counterOutput.innerText = "counter : " + counter;
+        });
+        bt\.addEventListener('click',()=> {
+            counter = counter -1
+            counterOutput.innerText = "counter : " + counter
+        })
+
+        
+    </script>
+</body>
+</html>
