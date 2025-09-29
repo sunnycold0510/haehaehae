@@ -3,29 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>radio button sample</title>
 </head>
 <body>
-    <h1> 숫자입력 </h1>
-    <div>
-        <input id="inp-num" type="number" value="0" />
-        <button id="btn-ok"> ok </button>
-    </div>
-    <p id="output"> 선택한 번호 : </p>
-    
-    <script>
-        // 1. 필요한 HTML 요소를 ID로 선택해서 변수에 저장합니다.
-        const inputNum = document.getElementById('inp-num');
-        const okButton = document.getElementById('btn-ok');
-        const output = document.getElementById('output');
 
-        // 2. 'ok' 버튼에 'click' 이벤트가 발생했을 때 실행될 함수를 연결합니다.
-        okButton.addEventListener('click', () => {
-            // 3. 버튼이 클릭되면 input에 있는 값을 가져옵니다.
-            const selectedValue = inputNum.value;
+    <h1> Radio Button Sample</h1>
+    <div>
+        <input type="radio" name="group-1"  value="사과" checked />사과
+    </div>
+    <div>
+        <input type="radio" name="group-1" value="바나나" />바나나
+    </div>
+    <div>
+        <input type="radio" name="group-1" value="포도" />포도
+    </div>
+
+    <button id="btn-select" >  확인 </button>
+    <p>
+        결과 : <span id="ouput-result" ></span>
+    </p>
+
+    <hr>
+
+    <div>
+        <input type="radio" name="group-2" value="에스파" checked/>에스파
+    </div>
+    <div>
+        <input type="radio" name="group-2" value="아일릿" />아일릿
+    </div>
+    <div>
+        <input type="radio" name="group-2" value="뉴진스" />뉴진스
+    </div>
+    <div>
+        <input type="radio" name="group-2" value="아이브" />아이브
+    </div>
+    <button id="btn-select-2" >  확인 </button>
+    <p>
+        결과 : <span id="ouput-result-2" ></span>
+    </p>
+
+    <script>
+        // --- 첫 번째 그룹 스크립트 ---
+        var btnSelect = document.getElementById("btn-select");
+        var outpytResult = document.getElementById("ouput-result");
+
+        btnSelect.addEventListener('click', () => {
+            // name이 "group-1"인 라디오 버튼 중 선택된 항목을 찾습니다.
+            var selectItem = document.querySelector("input[name='group-1']:checked");
             
-            // 4. <p> 태그의 텍스트를 "선택한 번호 : "와 위에서 가져온 값으로 변경합니다.
-            output.textContent = '선택한 번호 : ' + selectedValue;
+            // 선택된 항목이 있을 경우, 그 값을 결과에 표시합니다.
+            if (selectItem) {
+                outpytResult.innerText = 'select ' + selectItem.value;
+            }
+        });
+
+        // --- 두 번째 그룹 스크립트 ---
+        var btnSelect2 = document.getElementById("btn-select-2");
+        var outputResult2 = document.getElementById("ouput-result-2");
+        
+        btnSelect2.addEventListener('click', () => {
+            // name이 "group-2"인 라디오 버튼 중 선택된 항목을 찾습니다.
+            var selectItem2 = document.querySelector("input[name='group-2']:checked");
+
+            // 선택된 항목이 있을 경우, 그 값을 결과에 표시합니다.
+            if (selectItem2) {
+                outputResult2.innerText = 'select ' + selectItem2.value;
+            }
         });
     </script>
 </body>
