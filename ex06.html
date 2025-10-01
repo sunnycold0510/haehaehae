@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slider example</title>
+</head>
+<body>
+    <h1>
+        볼륨을 높여요
+    </h1>
+    <div>
+        <input type="range" min="0" max="100" value="50" id="range-vol" >
+        : <span id="current-vol" >50</span>
+    </div>
+    <button id="but-submit" >제출</button>
+    <p id="txt-result" ></p>
+
+
+    <script>
+        var rangeVol = document.getElementById("range-vol");
+        var butSubmit = document.getElementById("but-submit");
+        var txtResult = document.getElementById("txt-result");
+        // 1. 수정된 id로 요소를 올바르게 가져옵니다.
+        var currentVol = document.getElementById("current-vol");
+
+        // 2. 변수 이름 오타 수정: btnSubmit -> butSubmit
+        butSubmit.addEventListener('click', ()=> {
+            txtResult.innerText = "volume : " + rangeVol.value;
+        });
+        
+        // 이 이벤트 리스너는 슬라이더 조작이 끝났을 때 한 번만 실행됩니다.
+        // 실시간 변경을 원하면 'input' 이벤트만으로 충분하므로, 필요 없다면 지워도 됩니다.
+        rangeVol.addEventListener("change", ()=> {
+            console.log("Change Event Fired:", rangeVol.value);
+            // 3. 변수 이름 오타 및 속성 수정: curretVol.value -> currentVol.innerText
+            currentVol.innerText = rangeVol.value;
+        });
+        
+        // 슬라이더를 움직일 때마다 실시간으로 값을 표시합니다.
+        rangeVol.addEventListener("input",()=> {
+            // 4. 변수 이름 오타 수정: curretVol -> currentVol
+            currentVol.innerText = rangeVol.value;
+        });
+    </script>
+</body>
+</html>
